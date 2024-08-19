@@ -38,9 +38,10 @@ body {
 form {
   background-color: var(--form-bg-color);
   border-radius: 8px;
-  padding: 30px 20px;
+  padding: 40px 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%;
+  position: relative;
 }
 
 h1 {
@@ -99,12 +100,13 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 20px 0;
+  padding: 10px 0 0 0;
 }
 
 button {
   width: 100%;
   padding: 10px;
+  margin-top: 25px;
   background-color: var(--primary-color);
   color: var(--form-bg-color);
   border: none;
@@ -117,10 +119,61 @@ button {
 button:hover {
   background-color: var(--neutral-dark-color);
 }
-
+.error-message {
+  color: var(--error-color);
+  margin-top: 5px;
+}
 input:hover,
 fieldset div:hover {
   border-color: var(--neutral-dark-color);
+}
+.radio-container.selected {
+  background-color: var(--primary-bg);
+  border-color: var(--primary-color);
+}
+
+label {
+  cursor: pointer;
+}
+.success {
+  display: none;
+  background-color: var(--neutral-dark-color);
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 2px;
+  z-index: 2;
+}
+.success h5 {
+  display: flex;
+  align-items: center;
+  color: var(--form-bg-color);
+  margin-bottom: 10px;
+}
+.success h5 img {
+  padding-right: 10px;
+}
+.success p {
+  font-size: 9px;
+  color: var(--primary-bg);
+}
+input[type="checkbox"]:checked {
+  accent-color: var(--primary-color);
+}
+input[type="radio"]:checked {
+  accent-color: var(--primary-color);
+}
+
+input.error,
+textarea.error,
+fieldset.error div {
+  border-color: var(--error-color);
+}
+
+input.success,
+textarea.success,
+fieldset.success div {
+  border-color: var(--primary-color);
 }
 @media (min-width: 1440px) {
   .row {
@@ -133,6 +186,7 @@ fieldset div:hover {
   .row .input-container {
     flex: 1;
     min-width: 0;
+    width: 200px;
   }
 
   fieldset {
@@ -140,5 +194,4 @@ fieldset div:hover {
     align-items: center;
     gap: 20px;
   }
-
 }
